@@ -17,28 +17,41 @@ public class Uni4Exe14 {
         System.out.print("Escreva o ano: ");
         int ano = teclado.nextInt();
 
-        boolean anoBissexto = (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
-        boolean dataValida = false;
-
+        // mês válido
         if (mes >= 1 && mes <= 12) {
-            if (mes == 2) {
-                if ((anoBissexto && dia >= 1 && dia <= 29) || (!anoBissexto && dia >= 1 && dia <= 28)) {
-                    dataValida = true;
+            // meses com 31 dias
+            if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
+                if (dia >= 1 && dia <= 31) {
+                    System.out.println("Data válida");
+                } else {
+                    System.out.println("Data não válida");
                 }
+                // mes com 30 dias
             } else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
                 if (dia >= 1 && dia <= 30) {
-                    dataValida = true;
-                }
-            } else {
-                if (dia >= 1 && dia <= 31) {
-                    dataValida = true;
+                    System.out.println("Data válida");
+                } else {
+                    System.out.println("Data não válida");
                 }
             }
-        }
-        if (dataValida) {
-            System.out.println("Válida");
+            // mes de fevereiro
+            else if (mes == 2) {
+                if ((ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0))) {
+                    if (dia >= 1 && dia <= 29) {
+                        System.out.println("Data válida");
+                    } else {
+                        System.out.println("Data não válida");
+                    }
+                } else {
+                    if (dia >= 1 && dia <= 28) {
+                        System.out.println("Data válida");
+                    } else {
+                        System.out.println("Data não válida");
+                    }
+                }
+            }
         } else {
-            System.out.println("Não válida");
+            System.out.println("Data não válida");
         }
         teclado.close();
     }

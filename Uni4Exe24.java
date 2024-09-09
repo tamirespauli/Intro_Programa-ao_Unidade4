@@ -23,41 +23,65 @@ public class Uni4Exe24 {
         int opcao = teclado.nextInt();
 
         switch (opcao) {
-            case 1:
-                if (valor1 < valor2 && valor2 < valor3) {
-                    System.out.println("Os valores em ordem crescente são: ");
-                    System.out.print(valor1 + ", ");
-                    System.out.print(valor2 + ", ");
-                    System.out.print(valor3 + ".");
+            case 1: // Ordem crescente
+                if (valor1 <= valor2 && valor2 <= valor3) {
+                    System.out.println("Ordem crescente: " + valor1 + ", " + valor2 + ", " + valor3);
+                } else if (valor1 <= valor3 && valor3 <= valor2) {
+                    System.out.println("Ordem crescente: " + valor1 + ", " + valor3 + ", " + valor2);
+                } else if (valor2 <= valor1 && valor1 <= valor3) {
+                    System.out.println("Ordem crescente: " + valor2 + ", " + valor1 + ", " + valor3);
+                } else if (valor2 <= valor3 && valor3 <= valor1) {
+                    System.out.println("Ordem crescente: " + valor2 + ", " + valor3 + ", " + valor1);
+                } else if (valor3 <= valor1 && valor1 <= valor2) {
+                    System.out.println("Ordem crescente: " + valor3 + ", " + valor1 + ", " + valor2);
+                } else {
+                    System.out.println("Ordem crescente: " + valor3 + ", " + valor2 + ", " + valor1);
                 }
-                if (valor2 < valor1 && valor1 < valor3) {
-                    System.out.println(valor2 + ", ");
-                    System.out.println(valor1 + ", ");
-                    System.out.print(valor3 + ".");
-                }
-                if (valor3 < valor1 && valor1 < valor2) {
-                    System.out.println(valor3 + ", ");
-                    System.out.println(valor1 + ", ");
-                    System.out.print(valor2 + ".");
-                }
-                if (valor3 < valor2 && valor2 < valor1) {
-                    System.out.println(valor3 + ", ");
-                    System.out.println(valor2 + ", ");
-                    System.out.print(valor1 + ".");
-                }
-                if (valor2 < valor3 && valor3 < valor1) {
-                    System.out.println(valor2 + ", ");
-                    System.out.println(valor3 + ", ");
-                    System.out.print(valor1 + ".");
-                }
+                break;
 
-                // break;
+            case 2: // Ordem decrescente
+                if (valor1 >= valor2 && valor2 >= valor3) {
+                    System.out.println("Ordem decrescente: " + valor1 + ", " + valor2 + ", " + valor3);
+                } else if (valor1 >= valor3 && valor3 >= valor2) {
+                    System.out.println("Ordem decrescente: " + valor1 + ", " + valor3 + ", " + valor2);
+                } else if (valor2 >= valor1 && valor1 >= valor3) {
+                    System.out.println("Ordem decrescente: " + valor2 + ", " + valor1 + ", " + valor3);
+                } else if (valor2 >= valor3 && valor3 >= valor1) {
+                    System.out.println("Ordem decrescente: " + valor2 + ", " + valor3 + ", " + valor1);
+                } else if (valor3 >= valor1 && valor1 >= valor2) {
+                    System.out.println("Ordem decrescente: " + valor3 + ", " + valor1 + ", " + valor2);
+                } else {
+                    System.out.println("Ordem decrescente: " + valor3 + ", " + valor2 + ", " + valor1);
+                }
+                break;
 
-                // default:
-                // break;
+            case 3: // Maior no meio
+                if ((valor1 >= valor2 && valor1 >= valor3)) {
+                    if (valor2 >= valor3) {
+                        System.out.println("Maior no meio: " + valor3 + ", " + valor1 + ", " + valor2);
+                    } else {
+                        System.out.println("Maior no meio: " + valor2 + ", " + valor1 + ", " + valor3);
+                    }
+                } else if ((valor2 >= valor1 && valor2 >= valor3)) {
+                    if (valor1 >= valor3) {
+                        System.out.println("Maior no meio: " + valor3 + ", " + valor2 + ", " + valor1);
+                    } else {
+                        System.out.println("Maior no meio: " + valor1 + ", " + valor2 + ", " + valor3);
+                    }
+                } else {
+                    if (valor1 >= valor2) {
+                        System.out.println("Maior no meio: " + valor2 + ", " + valor3 + ", " + valor1);
+                    } else {
+                        System.out.println("Maior no meio: " + valor1 + ", " + valor3 + ", " + valor2);
+                    }
+                }
+                break;
+
+            default:
+                System.out.println("Opção inválida!");
+                break;
         }
 
         teclado.close();
-
     }
 }

@@ -18,9 +18,10 @@ public class Uni4Exe14errada {
         int ano = teclado.nextInt();
         
         if (dia > 0 && dia < 32 && mes > 0 && mes <=12 && ano > 0 ){
-            
-              System.out.print("Válida");
-        } else if  (mes == 1 || mes == 3 || mes == 5 || mes == 6 || mes == 7 || mes == 8 || mes == 9 || mes == 10 || mes == 11 || mes == 12 ){
+        } else {
+            System.out.println("Não válido");
+        }
+        if  (mes == 1 || mes == 3 || mes == 5 || mes == 6 || mes == 7 || mes == 8 || mes == 9 || mes == 10 || mes == 11 || mes == 12 ){
             
             System.out.print("Válida");
         } else if (mes != 2 && dia < 32 ) { 
@@ -29,9 +30,9 @@ public class Uni4Exe14errada {
             System.out.print("Válida"); 
         } else if (dia == 29 && ano % 4 == 0 && !(ano % 100 == 0 && ano % 400 != 0)) {
             System.out.print("Válida");  
-        } else if (mes == 2 && dia > 29 ) {
+        } else  {
             System.out.print("Não válida");
-        }
+        } 
 
 
         teclado.close();
