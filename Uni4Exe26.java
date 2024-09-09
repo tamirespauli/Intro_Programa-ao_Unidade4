@@ -7,7 +7,7 @@ se opção = ‘R’: calcular a área de um retângulo de base b e altura h
 se opção = ‘C’: calcular a área de um círculo de raio r
 Para resolver este problema pode se utilizar do algoritmo descrito no fluxograma:
 */
-
+import java.lang.Math;
 import java.util.Scanner; 
 
 public class Uni4Exe26 {
@@ -29,35 +29,25 @@ public class Uni4Exe26 {
             case 'Q': 
                 System.out.println("Digite o lado: ");
                 double lado = teclado.nextDouble(); 
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                double areaQuadrado = lado * lado; 
+                System.out.println("Área do quadrado: " + areaQuadrado);
+                break; 
+            case 'R': 
+                System.out.println("Digite a base e alltura do retângulo: ");
+                double retanguloBase = teclado.nextDouble(); 
+                double retanguloAltura = teclado.nextDouble();
+                double retanguloArea = retanguloBase * retanguloAltura; 
+                System.out.println("Área do retângulo: " + retanguloArea);
+                break; 
+            case 'C': 
+                System.out.println("Diite o raio: ");
+                double raio = teclado.nextDouble();
+                double areaRaio = Math.PI * Math.pow(raio , 2);
+                System.out.println("Área circulo: " + areaRaio);
+                break; 
+            default: 
+                System.out.println("Opção Inválida"); 
         }
-
-
-
-
-
-
-
-
-
-
 
         teclado.close(); 
     }
