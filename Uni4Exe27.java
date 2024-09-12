@@ -17,19 +17,60 @@ O número de horas a pagar é sempre inteiro e arredondado para cima ou para bai
   a 24 horas, e sempre chegam e saem no mesmo dia.
  */
 
-
-
-import java.util.Scanner; 
+import java.util.Scanner;
 
 public class Uni4Exe27 {
     public static void main(String[] args) {
+        // Criação do Scanner para leitura de dados
         Scanner teclado = new Scanner(System.in);
 
-
-
-
-        teclado.close(); 
-        
+        // Entrada de dados
+        System.out.print("Hora de Chegada: ");
+        int horaChegada = teclado.nextInt();
+        System.out.print("Minuto de Chegada: ");
+        int minChegada = teclado.nextInt();
+        System.out.print("Hora de Saída: ");
+        int horaSaida = teclado.nextInt();
+        System.out.print("Minuto de Saída: ");
+        int minSaida = teclado.nextInt();
+        if (horaChegada < 0 || horaChegada > 23 || minChegada < 0 || minChegada > 59 ||
+                horaSaida < 0 || horaSaida > 23 || minSaida < 0 || minSaida > 59 ||
+                (horaChegada > horaSaida) || (horaChegada == horaSaida && minChegada > minSaida)) {
+            System.out.println("Dados inválidos. Verifique os horários de chegada e saída.");
+            return;
+        }
+        int tempoChegada = horaChegada * 60 + minChegada;
+        int tempoSaida = horaSaida * 60 + minSaida;
+        int totalMinutos = tempoSaida - tempoChegada;
+        int horas = totalMinutos / 60;
+        int minutosRestantes = totalMinutos % 60;
+        if (minutosRestantes > 30) {
+            horas++; // +30
+        } else if (minutosRestantes >= 30) {
+            horas += 0; // -30
+        } else {
+            horas = Math.max(horas, 1); // mantem sempre a hora mínima como 1
+        }
+        double preco = 0;
+        switch (horas) {
+            case 1:
+                preco = 5.00;
+                break;
+            case 2:
+                preco = 5.00 * 2;
+                break;
+            case 3:
+                preco = 5.00 * 2 + 7.50;
+                break;
+            case 4:
+                preco = 5.00 * 2 + 7.50 * 2;
+                break;
+            default:
+                if (horas > 4) {
+                    preco = 5.00 * 2 + 7.50 * 2 + (horas - 4) * 10.00;
+                }
+                break;
+        }
+        System.out.println(String.format("Preço cobrado = R$ %.2f", preco));
     }
-
 }
